@@ -7,7 +7,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
 };
 
 type RevealProps = HTMLMotionProps<"div"> & { delay?: number; y?: number; as?: "div" | "li" | "section" };
@@ -20,7 +20,7 @@ export function Reveal({ delay = 0, y = 30, as = "div", children, ...rest }: Rev
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease, delay }}
+      transition={{ duration: 0.6, ease, delay }}
       {...rest}
     >
       {children}
@@ -95,7 +95,7 @@ export function MaskReveal({ children, className }: { children: React.ReactNode;
       initial={{ clipPath: "inset(18% 6% 18% 6% round 24px)", opacity: 0.2, scale: 1.04 }}
       whileInView={{ clipPath: "inset(0% 0% 0% 0% round 0px)", opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 1.1, ease }}
+      transition={{ duration: 0.75, ease }}
     >
       {children}
     </motion.div>

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +13,9 @@ import { Button } from "@/components/ui/Button";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 
 export const dynamicParams = false;
+
+/** Staggered CSS entry for above-the-fold content. */
+const rise = (delay: string) => ({ "--d": delay }) as CSSProperties;
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -74,7 +78,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
           <div className="bg-grid mask-radial absolute inset-0 opacity-50" />
         </div>
         <div className="container-x">
-          <Reveal>
+          <div className="rise-in" style={rise("0s")}>
             <Link
               href="/projects"
               className="group inline-flex items-center gap-2 text-[13.5px] text-fg-2 transition-colors hover:text-fg"
@@ -82,28 +86,28 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
               <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-1" aria-hidden />
               All projects
             </Link>
-          </Reveal>
+          </div>
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end">
             <div>
-              <Reveal delay={0.04}>
+              <div className="rise-in" style={rise("0.03s")}>
                 <p className="flex items-center gap-3 font-mono text-[12px]">
                   <span className="text-accent-3">{p.index}</span>
                   <span className="h-px w-6 bg-line-2" />
                   <span className="uppercase tracking-[0.12em] text-muted">{p.category}</span>
                 </p>
-              </Reveal>
-              <Reveal delay={0.08}>
+              </div>
+              <div className="rise-in" style={rise("0.06s")}>
                 <h1 className="mt-4 text-balance text-[42px] font-semibold leading-[1.02] tracking-[-0.045em] sm:text-[60px] lg:text-[72px]">
                   {p.title}
                 </h1>
-              </Reveal>
-              <Reveal delay={0.14}>
+              </div>
+              <div className="rise-in" style={rise("0.1s")}>
                 <p className="mt-6 max-w-2xl text-pretty text-[17px] leading-relaxed text-fg-2 sm:text-[19px]">{p.summary}</p>
-              </Reveal>
+              </div>
             </div>
 
-            <Reveal delay={0.2}>
+            <div className="rise-in" style={rise("0.14s")}>
               <dl className="grid grid-cols-3 gap-4 rounded-2xl border border-line bg-ink/[0.02] p-5 text-[14px]">
                 {[
                   ["Role", p.role],
@@ -133,7 +137,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
                   </span>
                 )}
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </header>
@@ -145,9 +149,9 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
           style={{ background: `radial-gradient(80% 70% at 50% 0%, hsl(${p.hue} 80% 60% / 0.18), transparent 65%), var(--visual-bg)` }}
         >
           <div aria-hidden className="bg-grid absolute inset-0 opacity-40 [background-size:40px_40px] mask-fade-y" />
-          <MaskReveal className="relative">
+          <div className="rise-in relative" style={rise("0.12s")}>
             <ProjectVisual project={p} priority sizes="(min-width: 1280px) 1100px, 100vw" className="shadow-deep" />
-          </MaskReveal>
+          </div>
         </div>
       </div>
 

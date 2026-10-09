@@ -69,8 +69,8 @@ const personLd = {
   knowsAbout: ["React", "Next.js", "TypeScript", "Node.js", "PHP", "React Native", "REST APIs", "ERP systems", "POS systems"],
 };
 
-// Runs before paint: skips the intro on repeat visits within a session.
-const introScript = `try{var k="intro-seen";if(sessionStorage.getItem(k))document.documentElement.classList.add("seen-intro");else sessionStorage.setItem(k,"1")}catch(e){document.documentElement.classList.add("seen-intro")}`;
+// Runs before paint: the intro plays once per session, and only when landing on the homepage.
+const introScript = `try{var k="intro-seen";if(location.pathname!=="/"||sessionStorage.getItem(k))document.documentElement.classList.add("seen-intro");sessionStorage.setItem(k,"1")}catch(e){document.documentElement.classList.add("seen-intro")}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -407,7 +407,12 @@
 
   /* Route transitions: CSS so the first paint never waits on hydration. */
   .page-in {
+    animation: page-in 0.3s var(--ease-out-quart) both;
+  }
+  /* Fast entry for above-the-fold content on inner pages. */
+  .rise-in {
     animation: page-in 0.45s var(--ease-out-quart) both;
+    animation-delay: var(--d, 0s);
   }
   @keyframes page-in {
     from { opacity: 0; transform: translate3d(0, 10px, 0); }
@@ -425,7 +430,6 @@
   .loader-mark {
     animation: hero-in 0.6s var(--ease-out-quart) both;
   }
-  html.seen-intro .loader { display: none; }
   html.has-intro:not(.seen-intro) .hero-in {
     animation-delay: calc(var(--d, 0s) + 0.85s);
   }
@@ -500,6 +504,11 @@
   .border-glow::after { animation: none; }
   .loader { display: none; }
   .particle { animation: none; }
+}
+
+/* Skip the intro: must stay outside @layer, or the loader's `grid` utility wins. */
+html.seen-intro .loader {
+  display: none;
 }
 
 /* Theme switch: freeze transitions so hundreds of elements don't animate colours. */
