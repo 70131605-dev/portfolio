@@ -2,13 +2,15 @@ import { ArrowUpRight, FileText, Mail } from "lucide-react";
 import { overview } from "@/data/content";
 import { site } from "@/data/site";
 import { Stagger, StaggerItem } from "@/components/ui/Reveal";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/ui/BrandIcons";
+import { whatsappLink } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 const quickLinks = [
   { label: "Resume", href: site.resume, icon: FileText, download: true },
   { label: "LinkedIn", href: site.socials.linkedin, icon: LinkedinIcon },
   { label: "GitHub", href: site.socials.github, icon: GithubIcon },
+  { label: "WhatsApp", href: whatsappLink, icon: WhatsappIcon },
   { label: "Email", href: `mailto:${site.email}`, icon: Mail },
 ];
 

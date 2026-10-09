@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Download, Mail, Menu, X } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/ui/BrandIcons";
+import { whatsappLink } from "@/lib/contact";
 import { navItems, site } from "@/data/site";
 import { cn, sectionHref } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
@@ -214,10 +215,11 @@ export function Navbar() {
               >
                 <Download className="size-4" aria-hidden /> Download Resume
               </a>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 {[
                   { href: site.socials.github, label: "GitHub", icon: GithubIcon },
                   { href: site.socials.linkedin, label: "LinkedIn", icon: LinkedinIcon },
+                  { href: whatsappLink, label: "WhatsApp", icon: WhatsappIcon },
                   { href: `mailto:${site.email}`, label: "Email", icon: Mail },
                 ].map(({ href, label, icon: Icon }) => (
                   <a

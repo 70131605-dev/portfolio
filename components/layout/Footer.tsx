@@ -1,11 +1,13 @@
 import { Mail } from "lucide-react";
 import { site } from "@/data/site";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/ui/BrandIcons";
+import { whatsappLink } from "@/lib/contact";
 import { BackToTop } from "./BackToTop";
 
 const socials = [
   { href: site.socials.linkedin, label: "LinkedIn", icon: LinkedinIcon },
   { href: site.socials.github, label: "GitHub", icon: GithubIcon },
+  { href: whatsappLink, label: "WhatsApp", icon: WhatsappIcon },
   { href: `mailto:${site.email}`, label: "Email", icon: Mail },
 ];
 

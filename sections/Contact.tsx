@@ -1,13 +1,11 @@
 import type { ReactNode } from "react";
 import { ArrowRight, AtSign, Download, Globe, MapPin } from "lucide-react";
 import { site } from "@/data/site";
+import { whatsappLink } from "@/lib/contact";
 import { Reveal } from "@/components/ui/Reveal";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/ui/BrandIcons";
 
-const whatsappLink = `https://wa.me/${site.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
-  `Hi ${site.name.split(" ")[0]}, I came across your portfolio and would like to discuss an opportunity.`,
-)}`;
 
 /** Shown without the protocol, e.g. "in/qaiser-dev". */
 const shortUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/^linkedin\.com\//, "").replace(/\/$/, "");

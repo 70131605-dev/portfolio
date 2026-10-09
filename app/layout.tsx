@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Providers } from "@/components/layout/Providers";
 import { Loader } from "@/components/layout/Loader";
-import { FloatingResume } from "@/components/layout/FloatingResume";
+import { FloatingActions } from "@/components/layout/FloatingActions";
 import { THEME_COLORS, themeInitScript } from "@/lib/theme";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
@@ -104,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <Footer />
-          <FloatingResume />
+          <FloatingActions />
         </Providers>
       </body>
     </html>
