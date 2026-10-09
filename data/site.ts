@@ -12,10 +12,13 @@ export const site = {
     "Software Engineer and Full-Stack Developer building modern web applications, business systems and scalable digital products using React, Next.js, Node.js and modern technologies.",
   url: "https://qaisershaban.dev", // TODO: your production domain
   location: "Lahore, Pakistan",
-  availability: "Available for remote opportunities",
+  availability: "Full-time, remote & freelance",
   openToWork: true,
 
-  email: "hello@qaisershaban.dev", // TODO: your email
+  email: "qaiser.chohan.dev@gmail.com",
+  /** International format, digits only after the +. Used for wa.me links. */
+  whatsapp: "+923485709552",
+  whatsappDisplay: "+92 348 5709552",
   resume: "/resume.pdf", // TODO: replace public/resume.pdf with your CV
 
   /** Hero portrait (public/…). Set to null to show the initials monogram instead. */
@@ -30,7 +33,7 @@ export const site = {
 
   socials: {
     github: "https://github.com/70131605-dev",
-    linkedin: "https://www.linkedin.com/", // TODO: your LinkedIn profile URL
+    linkedin: "https://www.linkedin.com/in/qaiser-dev"
   },
 
   /**
