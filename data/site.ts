@@ -12,7 +12,7 @@ export const site = {
   tagline: "Building scalable web, mobile and business applications.",
   description:
     "Software Engineer and Full-Stack Developer in Lahore building web applications, business systems, POS software and mobile apps with React, Next.js, Node.js, PHP and React Native.",
-  url: "https://70131605-dev.github.io/qaiser",
+  url: "https://70131605-dev.github.io/QaiserShaban",
   location: "Lahore, Pakistan",
   availability: "Full-time, remote & freelance",
   openToWork: true,
