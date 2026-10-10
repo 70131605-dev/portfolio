@@ -108,5 +108,6 @@ export function ProjectCard({ project, priority, headingLevel = "h3" }: { projec
   );
 }
 
-/** Card grid shared by the homepage and /projects. */
-export const projectGrid = "grid gap-6 md:grid-cols-2 lg:grid-cols-3";
+/** Card grid shared by the homepage and /projects. Four cards sit 2×2 rather than leaving one alone on a row. */
+export const projectGrid = (count: number) =>
+  count === 4 ? "grid gap-6 md:grid-cols-2" : "grid gap-6 md:grid-cols-2 lg:grid-cols-3";

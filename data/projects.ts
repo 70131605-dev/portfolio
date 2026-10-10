@@ -263,6 +263,81 @@ const projectList: Omit<Project, "index">[] = [
     },
   },
   {
+    slug: "pos-system",
+    title: "All-in-One POS System",
+    category: "POS Platform",
+    year: "2025",
+    role: "Full-Stack Developer",
+    summary:
+      "Web and Windows desktop POS for restaurants, cafés, marts, pharmacies and retail stores that keeps billing online or offline.",
+    contribution:
+      "Built the web and desktop POS, offline-first sync, inventory, kitchen display and multi-branch reporting on one shared back end.",
+    stack: [
+      { name: "React", icon: "react" },
+      { name: "PHP", icon: "php" },
+      { name: "MySQL", icon: "mysql" },
+    ],
+    achievements: [
+      "Web-based and Windows desktop app, online and offline",
+      "Inventory, sales & billing, customers and kitchen display",
+      "Multi-branch support with reports and analytics",
+    ],
+    links: {},
+    linkNote: "Client project — demo available on request",
+    featured: true,
+    image: "/images/projects/pos-system.webp",
+    imageAspect: 1672 / 941,
+    mockup: "pos",
+    hue: 28,
+    detail: {
+      overview:
+        "An all-in-one point of sale for every type of business — restaurants, cafés, bakeries, marts, pharmacies and retail stores. It runs in the browser or as a Windows desktop app, keeps billing through internet drops, and syncs sales, stock and customers to a central dashboard across branches.",
+      problem:
+        "Retailers with several outlets lacked a consistent view of stock and sales. Connectivity was unreliable, so a cloud-only checkout would stop trading whenever the network failed.",
+      solution:
+        "An offline-capable checkout that queues transactions locally and syncs when back online, paired with a back-office dashboard for inventory, branches and reporting.",
+      responsibilities: [
+        "Checkout and cart flow optimized for keyboard and barcode input",
+        "Offline queue and conflict-safe sync strategy",
+        "Inventory and multi-branch data model",
+        "Sales, stock and shift reporting",
+      ],
+      features: [
+        { title: "Web & desktop", text: "Use it in any browser or as a Windows desktop application." },
+        { title: "Online & offline", text: "Billing continues without internet and syncs automatically when back online." },
+        { title: "Sales & billing", text: "Fast checkout, receipts, discounts and multiple payment methods." },
+        { title: "Inventory management", text: "Stock levels, categories and low-stock tracking per branch." },
+        { title: "Customer management", text: "Customer records and purchase history at the counter." },
+        { title: "Kitchen display (KDS)", text: "Orders flow straight to the kitchen screen for restaurants and cafés." },
+        { title: "Multi-branch support", text: "Every outlet in one system with consolidated stock and sales." },
+        { title: "Reports & analytics", text: "Sales overview, top products and payment-method breakdowns." },
+      ],
+      architecture: [
+        { layer: "Client", items: ["React desktop app", "Local transaction queue", "Receipt printing"] },
+        { layer: "API", items: ["PHP", "Sync endpoints", "Idempotent writes"] },
+        { layer: "Domain", items: ["Sales", "Inventory", "Branches & users"] },
+        { layer: "Data", items: ["MySQL", "Branch-scoped tables", "Audit log"] },
+      ],
+      screens: [
+        { label: "Register & current order", mockup: "pos" },
+        { label: "Back-office dashboard", mockup: "erp" },
+      ],
+      challenges: [
+        {
+          challenge: "Duplicate sales could appear when a queued transaction was retried.",
+          solution: "Gave every transaction a client-generated ID and made sync writes idempotent.",
+        },
+        {
+          challenge: "Cashiers needed speed more than visual richness.",
+          solution: "Designed keyboard-first flows with large touch targets and minimal steps to payment.",
+        },
+      ],
+      outcome:
+        "Stores keep trading through outages, managers see stock and sales across branches in one place, and the checkout stays fast during peak hours.",
+      outcomes: ["Resilient offline trading", "Consolidated multi-branch view", "Faster checkout flow"],
+    },
+  },
+  {
     slug: "erp-system",
     title: "ERP Management System",
     category: "Business Software",
@@ -331,75 +406,6 @@ const projectList: Omit<Project, "index">[] = [
       outcome:
         "Operational data now lives in one structured system. Teams work from the same numbers, reports no longer need manual assembly, and the module architecture gives a clean base for future features.",
       outcomes: ["Single source of truth for operations", "Faster, self-serve reporting", "Scalable base for new modules"],
-    },
-  },
-  {
-    slug: "pos-system",
-    title: "POS Management System",
-    category: "Retail Technology",
-    year: "2025",
-    role: "Full-Stack Developer",
-    summary:
-      "A point-of-sale platform for marts, pharmacies, cafés and multi-branch stores — built to keep selling even when the connection drops.",
-    contribution:
-      "Built the sales flow, inventory sync and reporting layer with offline-first behaviour and multi-branch support.",
-    stack: [
-      { name: "React", icon: "react" },
-      { name: "PHP", icon: "php" },
-      { name: "MySQL", icon: "mysql" },
-    ],
-    achievements: [
-      "Offline / online operation with background sync",
-      "Inventory, sales processing and end-of-day reports",
-      "Multi-branch stock and user management",
-    ],
-    links: {},
-    linkNote: "Client project — demo available on request",
-    featured: false,
-    mockup: "pos",
-    hue: 214,
-    detail: {
-      overview:
-        "A retail POS designed around the cashier's speed. It handles product lookup, checkout, returns and receipts, while syncing stock and sales to a central back office across branches.",
-      problem:
-        "Retailers with several outlets lacked a consistent view of stock and sales. Connectivity was unreliable, so a cloud-only checkout would stop trading whenever the network failed.",
-      solution:
-        "An offline-capable checkout that queues transactions locally and syncs when back online, paired with a back-office dashboard for inventory, branches and reporting.",
-      responsibilities: [
-        "Checkout and cart flow optimized for keyboard and barcode input",
-        "Offline queue and conflict-safe sync strategy",
-        "Inventory and multi-branch data model",
-        "Sales, stock and shift reporting",
-      ],
-      features: [
-        { title: "Fast checkout", text: "Barcode scan, quick search, discounts and split payments." },
-        { title: "Offline mode", text: "Sales continue without internet and sync automatically." },
-        { title: "Multi-branch", text: "Per-branch stock, transfers and consolidated reports." },
-        { title: "Reports", text: "Daily sales, top products and cashier shift summaries." },
-      ],
-      architecture: [
-        { layer: "Client", items: ["React desktop app", "Local transaction queue", "Receipt printing"] },
-        { layer: "API", items: ["PHP", "Sync endpoints", "Idempotent writes"] },
-        { layer: "Domain", items: ["Sales", "Inventory", "Branches & users"] },
-        { layer: "Data", items: ["MySQL", "Branch-scoped tables", "Audit log"] },
-      ],
-      screens: [
-        { label: "Checkout", mockup: "pos" },
-        { label: "Back-office dashboard", mockup: "erp" },
-      ],
-      challenges: [
-        {
-          challenge: "Duplicate sales could appear when a queued transaction was retried.",
-          solution: "Gave every transaction a client-generated ID and made sync writes idempotent.",
-        },
-        {
-          challenge: "Cashiers needed speed more than visual richness.",
-          solution: "Designed keyboard-first flows with large touch targets and minimal steps to payment.",
-        },
-      ],
-      outcome:
-        "Stores keep trading through outages, managers see stock and sales across branches in one place, and the checkout stays fast during peak hours.",
-      outcomes: ["Resilient offline trading", "Consolidated multi-branch view", "Faster checkout flow"],
     },
   },
   {

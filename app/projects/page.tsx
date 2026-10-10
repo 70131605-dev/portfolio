@@ -48,7 +48,7 @@ export default function ProjectsPage() {
           </Reveal>
         </div>
 
-        <Stagger className={projectGrid} stagger={0.06}>
+        <Stagger className={projectGrid(projects.length)} stagger={0.06}>
           {projects.map((p, i) => (
             <StaggerItem key={p.slug}>
               <ProjectCard project={p} priority={i < 3} headingLevel="h2" />

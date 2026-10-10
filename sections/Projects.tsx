@@ -20,7 +20,7 @@ export function Projects() {
           }
         />
 
-        <Stagger className={projectGrid} stagger={0.1}>
+        <Stagger className={projectGrid(featuredProjects.length)} stagger={0.1}>
           {featuredProjects.map((p) => (
             <StaggerItem key={p.slug}>
               <ProjectCard project={p} />
