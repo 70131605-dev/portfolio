@@ -24,6 +24,16 @@ const LANG_COLORS: Record<string, string> = {
 };
 const langColor = (l: string) => LANG_COLORS[l] ?? "var(--accent-3)";
 
+/** Lets long repo names wrap after "-" or "_" and at camelCase humps, never mid-word. */
+function breakable(name: string) {
+  return name.split(/(?<=[-_])|(?<=[a-z])(?=[A-Z])/).map((part, i) => (
+    <span key={i}>
+      {i > 0 && <wbr />}
+      {part}
+    </span>
+  ));
+}
+
 function StatCard({ icon, value, suffix, label }: { icon: ReactNode; value: number; suffix?: string; label: string }) {
   return (
     <div className="card card-hover h-full p-6">
@@ -41,7 +51,7 @@ function RepoCard({ name, description, language, url, stars }: { name: string; d
     <a href={url} target="_blank" rel="noopener noreferrer" className="card card-hover spotlight group flex h-full flex-col p-6">
       <span className="flex items-start gap-2.5">
         <GithubIcon className="mt-0.5 size-[18px] shrink-0 text-fg-2 transition-colors group-hover:text-fg" aria-hidden />
-        <span className="break-all font-mono text-[15px] font-semibold leading-snug text-fg">{name}</span>
+        <span className="min-w-0 break-words font-mono text-[15px] font-semibold leading-snug text-fg">{breakable(name)}</span>
       </span>
       <p className="mt-4 flex-1 text-[14.5px] leading-relaxed text-fg-2">{description}</p>
       <span className="mt-6 flex items-center justify-between text-[13px] text-muted">

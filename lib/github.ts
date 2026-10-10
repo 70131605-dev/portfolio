@@ -46,7 +46,9 @@ export async function getGitHubData(username: string, repoLimit = 3): Promise<Gi
   ]);
   if (!user || !repos) return null;
 
-  const own = repos.filter((r) => !r.fork);
+  // The "<username>/<username>" repo only holds the profile README.
+  const isProfileReadme = (r: GitHubRepo) => r.name.toLowerCase() === username.toLowerCase();
+  const own = repos.filter((r) => !r.fork && !isProfileReadme(r));
 
   // Bytes per language across own repositories — the same measure GitHub uses.
   const perRepo = await Promise.all(
@@ -57,7 +59,7 @@ export async function getGitHubData(username: string, repoLimit = 3): Promise<Gi
   const total = [...bytes.values()].reduce((a, b) => a + b, 0);
 
   return {
-    user,
+    user: { ...user, public_repos: repos.filter((r) => !isProfileReadme(r)).length },
     repos: own.slice(0, repoLimit),
     languages: total
       ? [...bytes.entries()]
