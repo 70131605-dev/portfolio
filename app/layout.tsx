@@ -8,6 +8,7 @@ import { Providers } from "@/components/layout/Providers";
 import { Loader } from "@/components/layout/Loader";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { THEME_COLORS, themeInitScript } from "@/lib/theme";
+import { basePath } from "@/lib/utils";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
@@ -62,7 +63,7 @@ const personLd = {
   name: site.name,
   jobTitle: `${site.title}, ${site.subtitle}`,
   url: site.url,
-  ...(site.portrait ? { image: new URL(site.portrait, site.url).href } : {}),
+  ...(site.portrait ? { image: `${site.url}${site.portrait}` } : {}),
   email: `mailto:${site.email}`,
   address: { "@type": "PostalAddress", addressLocality: site.location },
   sameAs: Object.values(site.socials),
@@ -70,7 +71,8 @@ const personLd = {
 };
 
 // Runs before paint: the intro plays once per session, and only when landing on the homepage.
-const introScript = `try{var k="intro-seen";if(location.pathname!=="/"||sessionStorage.getItem(k))document.documentElement.classList.add("seen-intro");sessionStorage.setItem(k,"1")}catch(e){document.documentElement.classList.add("seen-intro")}`;
+const home = `${basePath}/`;
+const introScript = `try{var k="intro-seen",p=location.pathname;if((p!=="${home}"&&p!=="${basePath || "/"}")||sessionStorage.getItem(k))document.documentElement.classList.add("seen-intro");sessionStorage.setItem(k,"1")}catch(e){document.documentElement.classList.add("seen-intro")}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

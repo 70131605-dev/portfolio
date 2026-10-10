@@ -6,6 +6,8 @@ import { site } from "@/data/site";
 export const alt = `${site.name} — ${site.title} & ${site.subtitle}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+// Rendered once at build time (required for static hosting).
+export const dynamic = "force-static";
 
 /** Social preview (LinkedIn, WhatsApp, X…): name, role, stack and portrait. */
 export default async function OpengraphImage() {

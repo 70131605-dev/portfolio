@@ -2,6 +2,8 @@
  * Single source of truth for personal details.
  * Replace every value marked TODO before deploying.
  */
+import { withBase } from "@/lib/utils";
+
 export const site = {
   name: "Qaiser Shaban",
   initials: "QS",
@@ -10,7 +12,7 @@ export const site = {
   tagline: "Building scalable web, mobile and business applications.",
   description:
     "Software Engineer and Full-Stack Developer building modern web applications, business systems and scalable digital products using React, Next.js, Node.js and modern technologies.",
-  url: "https://qaisershaban.dev", // TODO: your production domain
+  url: "https://70131605-dev.github.io/portfolio",
   location: "Lahore, Pakistan",
   availability: "Full-time, remote & freelance",
   openToWork: true,
@@ -19,7 +21,8 @@ export const site = {
   /** International format, digits only after the +. Used for wa.me links. */
   whatsapp: "+923485709552",
   whatsappDisplay: "+92 348 5709552",
-  resume: "/resume.pdf", // TODO: replace public/resume.pdf with your CV
+  /** Used in plain download links, so it carries the base path. Replace public/resume.pdf with your CV. */
+  resume: withBase("/resume.pdf"),
 
   /** Hero portrait (public/…). Set to null to show the initials monogram instead. */
   portrait: "/images/portrait.jpg" as string | null,
