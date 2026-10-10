@@ -5,9 +5,10 @@ import { ImageResponse } from "next/og";
 import { site } from "@/data/site";
 
 /**
- * Social preview card (WhatsApp, LinkedIn, X…), served as /og.png.
- * A real `.png` path matters: static hosts send extensionless files as
- * application/octet-stream, which link previews refuse to show.
+ * Social preview card (WhatsApp, LinkedIn, X…), served as /og.jpg.
+ * - A real file extension matters: static hosts send extensionless files as
+ *   application/octet-stream, which link previews refuse to show.
+ * - JPEG keeps it ~100 KB; WhatsApp often drops preview images over ~300 KB.
  */
 export const dynamic = "force-static";
 
@@ -29,7 +30,7 @@ export async function GET() {
   const [first, ...rest] = site.name.split(" ");
   const host = site.url.replace(/^https?:\/\//, "");
 
-  return new ImageResponse(
+  const png = new ImageResponse(
     (
       <div
         style={{
@@ -122,4 +123,12 @@ export async function GET() {
       ],
     },
   );
+
+  const jpeg = await sharp(Buffer.from(await png.arrayBuffer()))
+    .flatten({ background: "#07090D" })
+    .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: "4:4:4" })
+    .toBuffer();
+  return new Response(new Uint8Array(jpeg), {
+    headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=3600" },
+  });
 }
