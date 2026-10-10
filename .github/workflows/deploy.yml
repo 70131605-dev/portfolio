@@ -27,6 +27,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Build responsive image variants
+        run: node scripts/optimize-images.mjs
       - name: Build static site
         run: npx next build
         env:

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "build:pages": "node scripts/optimize-images.mjs && STATIC_EXPORT=true next build"
   },
   "dependencies": {
     "clsx": "^2.1.1",
