@@ -111,6 +111,13 @@
   --grid-line: rgb(255 255 255 / 0.045);
   --particle: rgb(190 200 255 / 0.55);
 
+  /* GitHub contribution graph (GitHub's dark palette) */
+  --gh-0: #161b22;
+  --gh-1: #0e4429;
+  --gh-2: #006d32;
+  --gh-3: #26a641;
+  --gh-4: #39d353;
+
   /* Hero portrait medallion */
   --disc: radial-gradient(circle at 50% 36%, #2e2b66 0%, #201f4a 42%, #161a36 72%, #11152b 100%);
   --disc-glow: rgb(108 99 255 / 0.28);
@@ -153,6 +160,13 @@
   --portrait-bg: linear-gradient(160deg, #fffaf2 0%, #efe4d2 60%);
   --grid-line: rgb(70 45 20 / 0.06);
   --particle: rgb(168 119 44 / 0.45);
+
+  /* GitHub contribution graph (GitHub's light palette) */
+  --gh-0: #ebedf0;
+  --gh-1: #9be9a8;
+  --gh-2: #40c463;
+  --gh-3: #30a14e;
+  --gh-4: #216e39;
 
   /* Hero portrait medallion: warm beige disc, as in the design */
   --disc: radial-gradient(circle at 50% 36%, #fbf3e6 0%, #f1e0c4 30%, #e4c99f 64%, #d3ad78 100%);

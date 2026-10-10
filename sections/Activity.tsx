@@ -8,6 +8,7 @@ import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { CountUp } from "@/components/ui/CountUp";
 import { GithubIcon } from "@/components/ui/BrandIcons";
+import { GitHubProfileCard } from "@/components/GitHubProfileCard";
 
 /** GitHub's own language colours. */
 const LANG_COLORS: Record<string, string> = {
@@ -174,6 +175,19 @@ export async function Activity() {
             </Reveal>
           )}
         </div>
+
+        {/* Profile + contribution graph, as on github.com */}
+        {gh?.calendar && gh.calendar.weeks.length > 0 && (
+          <Reveal delay={0.1} className="mt-6">
+            <GitHubProfileCard
+              name={gh.user.name ?? site.name}
+              login={gh.user.login}
+              avatar={gh.user.avatar_url}
+              url={gh.user.html_url}
+              calendar={gh.calendar}
+            />
+          </Reveal>
+        )}
       </div>
     </section>
   );
