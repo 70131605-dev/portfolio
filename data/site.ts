@@ -12,7 +12,7 @@ export const site = {
   tagline: "Building scalable web, mobile and business applications.",
   description:
     "Software Engineer and Full-Stack Developer building modern web applications, business systems and scalable digital products using React, Next.js, Node.js and modern technologies.",
-  url: "https://70131605-dev.github.io/portfolio",
+  url: "https://70131605-dev.github.io/qaiser",
   location: "Lahore, Pakistan",
   availability: "Full-time, remote & freelance",
   openToWork: true,

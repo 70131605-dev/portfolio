@@ -31,7 +31,8 @@ jobs:
         run: npx next build
         env:
           STATIC_EXPORT: "true"
-          PAGES_BASE_PATH: /portfolio
+          # Repo name = URL path (https://<user>.github.io/<repo>/).
+          PAGES_BASE_PATH: /${{ github.event.repository.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3

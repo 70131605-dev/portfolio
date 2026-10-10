@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 /**
  * Static export for GitHub Pages. The deploy workflow sets PAGES_BASE_PATH
- * (e.g. "/portfolio"); local `next dev` / `next build` are unaffected.
+ * (e.g. "/qaiser"); local `next dev` / `next build` are unaffected.
  */
 const basePath = process.env.PAGES_BASE_PATH ?? "";
 const staticExport = process.env.STATIC_EXPORT === "true";
