@@ -9,6 +9,7 @@ import { Loader } from "@/components/layout/Loader";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { THEME_COLORS, themeInitScript } from "@/lib/theme";
 import { basePath } from "@/lib/utils";
+import { ogImage } from "@/lib/seo";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
@@ -41,8 +42,9 @@ export const metadata: Metadata = {
     title,
     description: site.description,
     locale: "en_US",
+    images: [ogImage],
   },
-  twitter: { card: "summary_large_image", title, description: site.description },
+  twitter: { card: "summary_large_image", title, description: site.description, images: [ogImage] },
   robots: { index: true, follow: true },
   formatDetection: { telephone: false },
 };

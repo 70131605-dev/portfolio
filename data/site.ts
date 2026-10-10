@@ -11,7 +11,7 @@ export const site = {
   subtitle: "Full-Stack Developer",
   tagline: "Building scalable web, mobile and business applications.",
   description:
-    "Software Engineer and Full-Stack Developer building modern web applications, business systems and scalable digital products using React, Next.js, Node.js and modern technologies.",
+    "Software Engineer and Full-Stack Developer in Lahore building web applications, business systems, POS software and mobile apps with React, Next.js, Node.js, PHP and React Native.",
   url: "https://70131605-dev.github.io/qaiser",
   location: "Lahore, Pakistan",
   availability: "Full-time, remote & freelance",

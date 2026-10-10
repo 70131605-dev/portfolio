@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CircleCheck, ExternalLink, Lock } from "lucide-react";
 import { getProject, projects } from "@/data/projects";
 import { site } from "@/data/site";
+import { ogImage } from "@/lib/seo";
 import { MaskReveal, Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { ProjectVisual } from "@/components/ui/ProjectVisual";
 import { Mockup } from "@/components/mockups/Mockup";
@@ -30,8 +31,8 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
     title,
     description: p.summary,
     alternates: { canonical: `/projects/${p.slug}` },
-    openGraph: { type: "article", title, description: p.summary, url: `/projects/${p.slug}` },
-    twitter: { card: "summary_large_image", title, description: p.summary },
+    openGraph: { type: "article", title, description: p.summary, url: `/projects/${p.slug}`, images: [ogImage] },
+    twitter: { card: "summary_large_image", title, description: p.summary, images: [ogImage] },
   };
 }
 
